@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "defaultProvider": "unpkg",
+  "libraries": [
+    {
+      "library": "font-awesome@4.7.0",
+      "destination": "wwwroot/lib/font-awesome/"
+    }
+  ,
+{
+  "provider": "cdnjs",
+  "library": "datatables@1.10.21",
+  "destination": "wwwroot/lib/datatable/"
+}
+]
+}
