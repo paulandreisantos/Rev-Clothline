@@ -17,6 +17,22 @@ namespace RevClothing.Controllers
         {
             _logger = logger;
         }
+        
+         [HttpPost]
+        public IActionResult Childrens()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Mens()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Womens()
+        {
+            return View();
+        }
 
         public IActionResult Index()
         {
