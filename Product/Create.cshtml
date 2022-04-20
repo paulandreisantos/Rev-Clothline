@@ -1,0 +1,44 @@
+﻿@model RevClothing.Models.Item
+@inject RevClothing.Data.ApplicationDbContext _context;
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var categoryList = _context.Items.ToList();
+}
+
+<h1>Create</h1>
+
+<h4>Item</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ImagePath" class="control-label"></label>
+                <input asp-for="ImagePath" class="form-control" type="file" accept="image/*" />
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
+            </div>
+           <div class="form-group">
+               <label asp-for="ItemId" class="control-label"></label>
+               <select asp-for="ItemId" class="form-control">
+                   asp-items="@(new SelectList(categoryList, "ItemId", "Name"))" required>
+                   <option value="">Select one...</option>
+               </select>
+           </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
